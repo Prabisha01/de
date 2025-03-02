@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-sans; /* Uses the 'sans' family defined in tailwind.config.js */
+}
+
+@keyframes blob {
+  0%, 100% {
+    transform: translate(100px, 0) scale(1);
+  }
+  25% {
+    transform: translate(100px, -50px) scale(1.1);
+  }
+  50% {
+    transform: translate(0, 50px) scale(0.9);
+  }
+  75% {
+    transform: translate(-100px, -50px) scale(1.05);
+  }
+}
+
+.animate-blob {
+  animation: blob 20s infinite alternate;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 2ms;
+}
+
+.canvas-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+.element {
+  position: absolute;
+  cursor: move;
+  transition: transform 0.1s;
+}
+
+.resize-handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #4299e1;
+  cursor: nwse-resize;
+}
+
+.bottom-right { right: -5px; bottom: -5px; }
+.bottom-left { left: -5px; bottom: -5px; }
+
+/* Add to your main CSS file */
+.toolbar-transition {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resize-handle {
+  @apply w-2 h-2 absolute bg-blue-500 rounded-full cursor-nwse-resize;
+  bottom: -4px;
+  right: -4px;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+[contenteditable]:empty:before {
+  content: attr(placeholder);
+  color: #999;
+  cursor: text;
+}
